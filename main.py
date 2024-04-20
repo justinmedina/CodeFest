@@ -17,5 +17,13 @@ response = model.generate_content("Tell me a story about a magic backpack.")
 
 print(response.text)
 
-from PIL import Image
-img = Image.open("~/cat.jpg")
+model = genai.GenerativeModel("gemini-pro")
+chat = model.start_chat(history=[])
+response = chat.send_message("Explain deep learning to young child / in one sentence")
+print(response.text)
+
+response = chat.send_message("Okay, how about a more detailed / to a high schooler")
+print("\n", response.text)
+
+for message in chat.history:
+    print(f"{message.role}: {message.parts[0].text}\n")
