@@ -18,5 +18,4 @@ response = model.generate_content("Tell me a story about a magic backpack.")
 print(response.text)
 
 from PIL import Image
-img = Image.open("/content/cat.jpg")
-img
+img = Image.open("~/cat.jpg")
