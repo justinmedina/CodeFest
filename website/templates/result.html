@@ -4,26 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        ol {
+        body {
+            text-align: center;
+            background-color: rgb(24, 20, 20); /* Set the background color for the whole page */
+            font-family: 'Montserrat', sans-serif;
+        }
+        h2 {
+            color: white; /* Set the color of the title to white */
+            font-size: 2.5em;
+        }
+        ul {
+            list-style-type: none;
             list-style-position: inside;
             text-align: center;
+            align-items: center;
         }
         li {
-            text-align: center;
+            margin-bottom: 3px;
+        }
+        .song-container {
+            display: flex;
+            align-items: center;
+            justify-content: left; /* Center horizontally */
+            margin: auto; /* Center vertically */
+            max-width: 375px; /* Set max width to avoid stretching */
+            padding: 0px; /* Add padding for spacing */
+            border: 3px solid #ccc; /* Add border for clarity */
+            border-color: rgb(63, 77, 63);
+            background-color: rgb(255, 255, 255);
+        }
+        .cover-image {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 20px;
+        }
+        a {
+            color: white; /* Set link color to white */
+            text-decoration: none; /* Remove underline */
+        }
+        /* Styling for visited links */
+        a:visited {
+            color: white; /* Set visited link color to white */
+        }
+        /* Styling for active links */
+        a:active {
+            color: white; /* Set active link color to white */
         }
     </style>
 </head>
 <body>
     <div style="text-align: center;">
-        <h2>Your New Playlist</h2>
-        <ol>
-            {% for song in playlist %}
-                <li>{{ song }}</li>
+        <h2>Here Is Your Dose of Five !</h2>
+        <ul>
+            {% for index in range(titles|length) %}
+            <li>
+                <div class="song-container">
+                    <img src="{{ covers[index] }}" alt="Cover Image" class="cover-image">
+                    <p><b>{{ titles[index] }}</b></p>
+                </div>
+            </li>
             {% endfor %}
-        </ol>
-        <br>
-        <a href="/">Generate New Playlist</a>
+        </ul>
+        <a href="/">Generate Another Playlist</a>
     </div>
 </body>
 </html>
+
