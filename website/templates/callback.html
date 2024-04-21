@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    <script>
+        // Extract access token from URL fragment
+        var accessToken = window.location.hash.substr(1).split('&')[0].split('=')[1];
+
+        // Send access token to server as a query parameter
+        window.location.href = "/process_callback?access_token=" + accessToken;
+    </script>
+</body>
+</html>

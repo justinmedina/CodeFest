@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Frontend</title>
+    <title>Index</title>
+    <style>
+        #input_text {
+            width: 200px; /* Set the width of the textarea */
+            height: 100px; /* Set the height of the textarea */
+            resize: none; /* Prevent resizing */
+            vertical-align: top; /* Align text to the top */
+        }
+    </style>
 </head>
 <body>
     <div style="text-align: center;">
         <h1>LeSunshine <3</h1>
-        <form action="/generate_playlists" method="post">
-            <input type="text" name="input_text" placeholder="How are we feeling today?">
+        <form action="/generate_playlists" method="post" onsubmit="return validateForm()">
+            <input type="text" id="input_text" name="input_text" placeholder="How are we feeling today?">
             <br><br>
             <button type="submit">Create Playlist</button>
         </form>
+        <br>
+        <a href="/authenticate"><button>Authenticate with Spotify</button></a>
     </div>
+
+    <script>
+        function validateForm() {
+            var inputText = document.getElementById("input_text").value.trim();
+            if (inputText === "") {
+                alert("Please enter something in the text box.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
 </body>
 </html>
