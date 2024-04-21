@@ -17,6 +17,8 @@ genai.configure(api_key="AIzaSyCqZiA0pNqc52G7BZiSW2MkEtk_s7pa85U")
 model = genai.GenerativeModel(model_name="gemini-pro")
 
 def testCurrentToken():
+    if 'access_token' not in session:
+        return False
     test_headers = {
         "Authorization": "Bearer " + session['access_token']
     }
