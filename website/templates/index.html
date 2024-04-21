@@ -4,25 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            background-color: rgb(24, 20, 20);
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1 {
+            font-size: 4.5em;
+            color: white; /* Set the color of the title to white */
+        }
         #input_text {
-            width: 200px; /* Set the width of the textarea */
-            height: 100px; /* Set the height of the textarea */
-            resize: none; /* Prevent resizing */
-            vertical-align: top; /* Align text to the top */
+            width: 450px; /* Set the width of the textarea */
+            height: 20px;
+            white-space: pre-wrap; /* Preserve white-space and wrap text */
+            resize: none; /* Prevent users from resizing the textarea */
+        }
+        a {
+            color: white; /* Set link color to white */
+            text-decoration: none; /* Remove underline */
+        }
+        /* Styling for visited links */
+        a:visited {
+            color: white; /* Set visited link color to white */
+        }
+        /* Styling for active links */
+        a:active {
+            color: white; /* Set active link color to white */
         }
     </style>
 </head>
 <body>
     <div style="text-align: center;">
-        <h1>LeSunshine <3</h1>
+        <h1>SpotiFive</h1>
         <form action="/generate_playlist" method="post" onsubmit="return validateForm()">
             <input type="text" id="input_text" name="input_text" placeholder="How are we feeling today?">
             <br><br>
             <button type="submit">Create Playlist</button>
         </form>
         <br>
-        <a href="/authenticate"><button>Authenticate with Spotify</button></a>
     </div>
 
     <script>
