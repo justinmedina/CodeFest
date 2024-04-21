@@ -17,3 +17,18 @@ def process_text():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+'''
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyCqZiA0pNqc52G7BZiSW2MkEtk_s7pa85U")
+
+model = genai.GenerativeModel(model_name="gemini-pro")
+
+response = model.generate_content("Tell me a story about a magic backpack.")
+
+print(response.text)
+
+from PIL import Image
+img = Image.open("~/cat.jpg")
+'''
