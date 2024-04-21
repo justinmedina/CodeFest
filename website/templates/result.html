@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <style>
+        ol {
+            list-style-position: inside;
+            text-align: center;
+        }
+        li {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div style="text-align: center;">
-        <h2>Resume Suggestions:</h2>
-        <p>{{ processed_text }}</p>
+        <h2>Your New Playlist</h2>
+        <ol>
+            {% for playlist in playlists %}
+                <li>{{ playlist }}</li>
+            {% endfor %}
+        </ol>
         <br>
-        <a href="/">Generate More Suggestions</a>
+        <a href="/">Generate New Playlist</a>
     </div>
 </body>
 </html>
