@@ -3,32 +3,20 @@ import google.generativeai as genai
 
 app = Flask(__name__)
 
+genai.configure(api_key="AIzaSyCqZiA0pNqc52G7BZiSW2MkEtk_s7pa85U")
+model = genai.GenerativeModel(model_name="gemini-pro")
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/process_text', methods=['POST'])
-def process_text():
+@app.route('/generate_playlists', methods=['POST'])
+def generate_playlists():
     if request.method == 'POST':
-        job_desc = request.form['input_text']
-        # Put Gemini Code Here
-        processed_text = job_desc.upper()  # Example: Convert text to uppercase
-        return render_template('result.html', processed_text=processed_text)
+        user_input = request.form['input_text']
+        response = model.generate_content(f"You will give me five songs and their artists. Add a '-' between the song and the artist. Separate each song with nothing but a '%'. Each song has to be related to this prompt: {user_input}.")
+        playlists = response.text.split("%")
+        return render_template('result.html', playlists=playlists)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-'''
-import google.generativeai as genai
-
-genai.configure(api_key="AIzaSyCqZiA0pNqc52G7BZiSW2MkEtk_s7pa85U")
-
-model = genai.GenerativeModel(model_name="gemini-pro")
-
-response = model.generate_content("Tell me a story about a magic backpack.")
-
-print(response.text)
-
-from PIL import Image
-img = Image.open("~/cat.jpg")
-'''
