@@ -63,7 +63,6 @@ def process_callback():
     else:
         return "Error: Access token not provided in callback URL"
 
-
 @app.route('/generate_playlist', methods=['POST'])
 def generate_playlist():
     if request.method == 'POST':
@@ -101,7 +100,6 @@ def generate_playlist():
         session['fail_message'] = genai_response.text
         return redirect('/generation_failed')
         
-    
 @app.route('/add_songs')    
 def add_songs():
     playlist = session['playlist']
@@ -133,7 +131,6 @@ def add_songs():
         return redirect('/generation_complete')
     else:
         return "ERROR CODE: " + str(add_songs_response.status_code)
-    
     
 @app.route('/generation_complete')
 def generation_complete():
